@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "expression-engine"
+version = "0.1.0"
+description = ""
+authors = ["anyangml"]
+readme = "README.md"
+packages = [{include = "expression_engine"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<3.9"
+pix2tex = "^0.1.2"
+langchain = "^0.0.245"
+pix2text = "^0.2.3.1"
+gradio = "^3.39.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
