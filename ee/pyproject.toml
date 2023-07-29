@@ -12,6 +12,7 @@ pix2tex = "^0.1.2"
 langchain = "^0.0.245"
 pix2text = "^0.2.3.1"
 gradio = "^3.39.0"
+openai = "^0.27.8"
 
 
 [build-system]
