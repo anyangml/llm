@@ -2,7 +2,7 @@
 
 This tool uses ORC algorithms to extract raw text from images (latex and plain text) and standarize the text into structed data format (yaml). The standarized output can be used by pydantic to create python objects directly.
 
-<img width="1509" alt="Screenshot 2023-08-02 at 5 42 23 PM" src="https://github.com/christwy0614/NLP_team_project/assets/66216181/1b4bcf7f-7579-49ea-abd6-9ca86ed3a136">
+![image](https://github.com/anyangml/llm/assets/137014849/21e5dc97-a9f9-4121-b123-819b6ad4e11f)
 
 ### Tools used
 - Pic2tex
