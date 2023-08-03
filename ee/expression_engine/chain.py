@@ -13,7 +13,9 @@ class Chain:
     AI: {yaml}
     """
     prefix = """Pretend you are a software engineer, and you are implementing calculators defined in latex format with raw text 
-    documentations describing the parameter used in the calculator. You need to reformat the information into a yaml format, below is an example:
+    documentations describing the parameter used in the calculator. For each term present in the latex equation, a parameter need to be
+    defined according to the corresponding raw text description and it must have a human readable varialbe name that is used in the input field
+    and the symbol field. You need to reformat the information into a yaml format, below is an example:
     """
 
     suffix = """
