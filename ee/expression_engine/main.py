@@ -11,7 +11,8 @@ class Gradio:
             fn=Gradio.ocr.pipeline,
             inputs=[
                 gr.inputs.Image(source="upload", type="pil", label="Latex Image"),
-                gr.inputs.Image(source="upload", type="pil", label="Document Image"),
+                gr.inputs.Image(source="upload", type="pil", label="Document Image 1"),
+                gr.inputs.Image(source="upload", type="pil", label="Document Image 2"),
             ],
             outputs=["text"],
             cache_examples=False,

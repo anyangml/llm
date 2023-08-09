@@ -1,4 +1,5 @@
 from typing import Dict
+from typing import Optional
 from pix2tex.cli import LatexOCR
 from pix2text import Pix2Text
 from chain import Chain
@@ -12,7 +13,7 @@ class OCRhelper:
     latex_model = LatexOCR()
     doc_model = Pix2Text()
 
-    def pipeline(self, latex_img, doc_img):
+    def pipeline(self, latex_img, doc_img1, doc_img2 = None):
         """
         This is this main function used by Gradio to get the final output
 
@@ -21,8 +22,11 @@ class OCRhelper:
         latex_img : PIL
             image of the latex equation
 
-        doc_img : PIL
+        doc_img1 : PIL
             image of the documentation
+        
+        doc_img1 : Optional[PIL]
+            image of the documentation continue, default to None
 
         Returns:
         --------
@@ -32,8 +36,11 @@ class OCRhelper:
 
         # extracting info from latex and doc images
         latex = self.latex_model(latex_img)
-        raw_doc = self.doc_model(doc_img)
+        raw_doc = self.doc_model(doc_img1)
         parsed_doc = OCRhelper.parse_doc(raw_doc)
+        if doc_img2 is not None:
+            raw_doc = self.doc_model(doc_img2)
+            parsed_doc += OCRhelper.parse_doc(raw_doc)
         ocr_output = (
             f"{OCRhelper.curly_bracket(latex)} \n {OCRhelper.curly_bracket(parsed_doc)}"
         )
