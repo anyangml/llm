@@ -15,14 +15,14 @@ examples = [
         "yaml": """version: 1
                 equation: power * load_factor * hour / (eff * hhv) * conversion_factor
                 inputs:
-                - power
-                - load_factor
-                - hour
-                - eff
-                - hhv
+                  - power
+                  - load_factor
+                  - hour
+                  - eff
+                  - hhv
                 output: fuel
                 terms:
-                - symbol: fuel
+                  - symbol: fuel
                     description: Theoretical volume of liquid fuel combusted by fired equipment j.
                     latex: Fuel = \sum_{{j=1}}^{{n}} \frac{{P_{{rated\ j}}}}{{\eta_j}} \times \frac{{LD_j}}{{HHV_j}} \times OH_j \times 0.0036
                     display_name: Fuel Consumption
@@ -30,7 +30,7 @@ examples = [
                     measurement_unit: m3
                     measurement_quantity: Volume
                     data_type: float
-                - symbol: power
+                  - symbol: power
                     description: Maximum rated power for fired equipment j.
                     latex: P_{{rated\ j}}
                     display_name: Maximum rated power
@@ -39,9 +39,9 @@ examples = [
                     measurement_quantity: Power
                     required: true
                     constraints:
-                    minimum: 0
+                      minimum: 0
                     data_type: float
-                - symbol: load_factor
+                  - symbol: load_factor
                     description: Load for fired equipment j (load fraction).
                     latex: LD_j
                     display_name: Load factor
@@ -50,10 +50,10 @@ examples = [
                     measurement_quantity: Fraction
                     required: true
                     constraints:
-                    minimum: 0
-                    maximum: 1
+                      minimum: 0
+                      maximum: 1
                     data_type: float
-                - symbol: hour
+                  - symbol: hour
                     description: Total operating hours for fired equipment j.
                     latex: OH_j
                     display_name: Operating hours
@@ -62,9 +62,9 @@ examples = [
                     measurement_quantity: Time
                     required: true
                     constraints:
-                    minimum: 0
+                      minimum: 0
                     data_type: float
-                - symbol: eff
+                  - symbol: eff
                     description: Thermal efficiency for fired equipment j.
                     latex: \eat_j
                     display_name: Thermal efficiency
@@ -73,10 +73,10 @@ examples = [
                     measurement_quantity: Fraction
                     required: true
                     constraints:
-                    minimum: 0
-                    maximum: 1
+                      minimum: 0
+                      maximum: 1
                     data_type: float
-                - symbol: hhv
+                  - symbol: hhv
                     description: High heat value of the liquid fuel combusted by fired equipment j.
                     latex: HHV_j
                     display_name: High heat value
@@ -85,9 +85,9 @@ examples = [
                     measurement_quantity: Energy density
                     required: true
                     constraints:
-                    minimum: 0
+                      minimum: 0
                     data_type: float
-                - symbol: conversion_factor
+                  - symbol: conversion_factor
                     description: Energy conversion factor
                     latex: 0.0036
                     constant_value: 0.0036
@@ -100,27 +100,27 @@ examples = [
     },
     {
         "latex": """C O_{{2}}=\sum_{{i=1}}^{{n}}\ {{3.664\times F u e l_{{i}}\times C C_{{i}}\times0.001  \n
-                CO, 一 Annual CO, mass emissions from combustion of the specific gaseous fuel 
-                (tonnes). 
-                n Number of required carbon content determinations for the year, as specified in 
-                WCI.25. 
-                Fuel 一 Fuel combusted in period “i” a day or month, as applicable) (volume of the 
-                gaseous fuel in Rm at reference temperature and pressure conditions as used by 
-                the facility, or mass of the gaseous fuel in kg if a mass flow meter is used) 
-                CC 一 Average carbon content of the gaseous fuel, from the fuel analysis results for the 
-                period i(day or month, as applicable) (kg per Rm' or kg C per kg of fuel if a 
-                mass flow meter is used) 
-                3.664 Ratio of molecular weights, CO to carbon. 
+                CO, 一 Annual CO, mass emissions from combustion of the specific gaseous fuel
+                (tonnes).
+                n Number of required carbon content determinations for the year, as specified in
+                WCI.25.
+                Fuel 一 Fuel combusted in period “i” a day or month, as applicable) (volume of the
+                gaseous fuel in Rm at reference temperature and pressure conditions as used by
+                the facility, or mass of the gaseous fuel in kg if a mass flow meter is used)
+                CC 一 Average carbon content of the gaseous fuel, from the fuel analysis results for the
+                period i(day or month, as applicable) (kg per Rm' or kg C per kg of fuel if a
+                mass flow meter is used)
+                3.664 Ratio of molecular weights, CO to carbon.
                 0.001 Conversion factor from kg to tonnes.""",
 
         "yaml": """version: 1
                 equation: 3.664 * fuel * cc * conversion_factor
                 inputs:
-                - fuel
-                - cc
+                  - fuel
+                  - cc
                 output: co2
                 terms:
-                - symbol: co2
+                  - symbol: co2
                     description: Annual CO2 mass emissions from combustion of the specific gaseous fuel.
                     latex: CO_2 = \sum_{{i=1}}^{{n}} 3.664 \times Fuel_i \times CC_i \times 0.001
                     display_name: CO2 Emissions
@@ -128,7 +128,7 @@ examples = [
                     measurement_unit: tonnes
                     measurement_quantity: Mass
                     data_type: float
-                - symbol: mw_ratio
+                  - symbol: mw_ratio
                     description: Ratio of molecular weights, CO2 to carbon.
                     latex: 3.664
                     constant_value: 3.664
@@ -137,7 +137,7 @@ examples = [
                     measurement_unit: unitless
                     measurement_quantity: Quantity
                     data_type: float
-                - symbol: fuel
+                  - symbol: fuel
                     description: Fuel combusted in period "i" (volume of the gaseous fuel in Rm at reference temperature and pressure conditions as used by the facility, or mass of the gaseous fuel in kg if a mass flow meter is used).
                     latex: Fuel_i
                     display_name: Fuel Combusted
@@ -146,9 +146,9 @@ examples = [
                     measurement_quantity: Volume or Mass
                     required: true
                     constraints:
-                    minimum: 0
+                      minimum: 0
                     data_type: float
-                - symbol: cc
+                  - symbol: cc
                     description: Average carbon content of the gaseous fuel, from the fuel analysis results for the period "i" (kg per Rm' or kg C per kg of fuel if a mass flow meter is used).
                     latex: CC_i
                     display_name: Carbon Content
@@ -157,9 +157,9 @@ examples = [
                     measurement_quantity: Mass per Volume or Mass per Mass
                     required: true
                     constraints:
-                    minimum: 0
+                      minimum: 0
                     data_type: float
-                - symbol: conversion_factor
+                  - symbol: conversion_factor
                     description: Conversion factor from kg to tonnes.
                     latex: 0.001
                     constant_value: 0.001
