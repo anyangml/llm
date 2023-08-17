@@ -7,6 +7,8 @@ class Gradio:
     ocr = OCRhelper()
 
     def launch(self):
+
+
         demo = gr.Interface(
             fn=Gradio.ocr.pipeline,
             inputs=[
@@ -14,7 +16,10 @@ class Gradio:
                 gr.inputs.Image(source="upload", type="pil", label="Document Image 1"),
                 gr.inputs.Image(source="upload", type="pil", label="Document Image 2"),
             ],
-            outputs=["text"],
+            outputs=[
+                gr.outputs.Textbox(type="text", label="YAML config"),
+                gr.Markdown(label="Output latex")
+            ],
             cache_examples=False,
         )
         demo.launch()

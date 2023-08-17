@@ -3,7 +3,7 @@ from typing import Optional
 from pix2tex.cli import LatexOCR
 from pix2text import Pix2Text
 from chain import Chain
-
+import re
 
 class OCRhelper:
     """
@@ -24,7 +24,7 @@ class OCRhelper:
 
         doc_img1 : PIL
             image of the documentation
-        
+
         doc_img1 : Optional[PIL]
             image of the documentation continue, default to None
 
@@ -44,14 +44,24 @@ class OCRhelper:
         ocr_output = (
             f"{OCRhelper.curly_bracket(latex)} \n {OCRhelper.curly_bracket(parsed_doc)}"
         )
-
         # creating few shot prompt with ocr_output
         chain = Chain()
         prompt = chain.create_prompt(ocr_output)
 
         # get yaml output
         yaml = chain.get_yaml(prompt)
-        return yaml
+        all_latex = re.findall(r"(?<=latex:)[\s\S]?\s\S*\b[\s\S]*?(?=\n)", yaml)
+        all_latex = [x.strip() for x in all_latex]
+
+        def latex_render(all_latex):
+            final_str = ""
+            for latex in all_latex:
+                final_str += "## $" + latex + "$  </br>"
+            return rf"{final_str}"
+
+        final_markdown = latex_render(all_latex)
+        # print(final_markdown)
+        return yaml, final_markdown
 
     @staticmethod
     def parse_doc(raw_doc: Dict) -> str:
