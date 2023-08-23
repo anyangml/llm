@@ -41,6 +41,14 @@ class OCRhelper:
         if doc_img2 is not None:
             raw_doc = self.doc_model(doc_img2)
             parsed_doc += OCRhelper.parse_doc(raw_doc)
+        print("Before: \n")
+        print(latex)
+        print("After: \n")
+
+        latex = latex.replace("\\bigl", "")
+        latex = latex.replace("\\bigr", "")
+        print(latex)
+
         ocr_output = (
             f"{OCRhelper.curly_bracket(latex)} \n {OCRhelper.curly_bracket(parsed_doc)}"
         )
