@@ -23,10 +23,12 @@ llm = LlamaCpp(
 )
 
 # Load the document, split it into chunks, embed each chunk and load it into the vector store.
-raw_documents = OnlinePDFLoader('llm/chatdev.pdf').load()
+raw_documents = OnlinePDFLoader("llm/chatdev.pdf").load()
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 documents = text_splitter.split_documents(raw_documents)
-db = Chroma.from_documents(documents, HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2"))
+db = Chroma.from_documents(
+    documents, HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+)
 
 query = "What is the average cost in software production"
 docs = db.similarity_search(query)
