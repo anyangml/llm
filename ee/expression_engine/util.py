@@ -13,7 +13,7 @@ class OCRhelper:
     latex_model = LatexOCR()
     doc_model = Pix2Text()
 
-    def pipeline(self, latex_img, doc_img1, doc_img2 = None):
+    def pipeline(self, latex_img, doc_img1, doc_img2=None):
         """
         This is this main function used by Gradio to get the final output
 
@@ -24,7 +24,7 @@ class OCRhelper:
 
         doc_img1 : PIL
             image of the documentation
-        
+
         doc_img1 : Optional[PIL]
             image of the documentation continue, default to None
 
