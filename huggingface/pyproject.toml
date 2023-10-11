@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "huggingface"
+version = "0.1.0"
+description = ""
+authors = ["anyangml"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+transformers = "^4.31.0"
+datasets = "^2.14.4"
+torch = "^2.0.1"
+evaluate = "^0.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
