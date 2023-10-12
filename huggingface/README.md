@@ -132,9 +132,4 @@ peft_trainer.train()
 # Resource
 - [NLPCourse](https://huggingface.co/learn/nlp-course/chapter0/1?fw=pt)
 - [PPO Reinforcement Learning](https://huggingface.co/learn/deep-rl-course/unit0/introduction)
-- MyUnderStandingOfTransformer
-  - different models
-  - tokenizers
-  - padding? batch with different length
-  - evaluation metrics
-  - peft
+- [MyUnderStandingOfTransformer](https://anyangpeng.notion.site/anyangpeng/NLP-Notes-f337664ce2444b6c8cef8abb84a24528)
