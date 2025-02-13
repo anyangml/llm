@@ -19,7 +19,7 @@ This tool uses ORC algorithms to extract raw text from images (latex and plain t
 
 2. install dependencies
 
-    `cd llm/ee`
+    `cd llm/expression_engine`
 
     `poetry shell`
 
